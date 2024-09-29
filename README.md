@@ -1,4 +1,4 @@
-##Overview
+## Overview
 This Rust program illustrates a cryptographic approach that combines the SHA-256 hash function and the Pedersen hash function. The purpose is to first hash a string with SHA-256, then partition the output into smaller pieces, and then apply the Pedersen hash function to these pieces using a set of randomly generated group generators.
 ## Key Concepts:
 - **SHA-256 Hashing:** The program hashes an input string into a 256-bit value using the widely used SHA-256 cryptographic hash function.
@@ -7,6 +7,13 @@ This Rust program illustrates a cryptographic approach that combines the SHA-256
 - `sha256_hash(input: &str) -> BigUint`: This function takes a string input, hashes it using SHA-256, and converts the resulting byte array into a `BigUint` for further processing.
 - `pedersen_hash(x: &[BigUint], g: &[BigUint], p: &BigUint) -> BigUint`: This function computes the Pedersen hash of a tuple of BigUint values `(x)` using a set of group generators `(g)` modulo a large prime `(p)`.
 - `generate_generators(n: usize, p: &BigUint) -> Vec<BigUint>`: This function generates `n` random group generators within the cyclic group $\mathbb{Z}_p$ , which are used for the Pedersen hash.
+## Requirements
+- Rust installed on your machine. (If Rust is not installed, follow the instructions on the [official Rust website](https://www.rust-lang.org/tools/install) to install it).
+- `num-bigint` crate for handling large integers. Enable the `rand` feature  for handling large integers.
+- `sha2` crate for the SHA-256 hashing algorithm.
+- `num-traits` crate for converting between types.
+- `rand` crate  for generating random numbers
+
 ## How it works
 - **Hashing the Input String:** The input string is hashed using SHA-256 to generate a 256-bit digest. The result is then converted into a `BigUint` for compatibility with the Pedersen hash.
 - **Chunking the Hash Value:** The 256-bit SHA-256 hash is split into smaller chunks, represented as `BigUint` values. This is necessary for the Pedersen hash, which operates on tuples of values.
