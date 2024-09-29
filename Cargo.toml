@@ -1,0 +1,10 @@
+[package]
+name = "Composition_of_SHA_256_and_Pedersen_Hash_in_Rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sha2 = "0.10"  # For SHA-256 hash function
+num-bigint = { version = "0.4.6", features = ["rand"] }  # Enable the "rand" feature  # For handling large integers
+num-traits = "0.2"  # For additional numeric traits
+rand = "0.8"  # For generating random numbers
